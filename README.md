@@ -1,8 +1,8 @@
 # EX-2: Implement-Breadth-First-Search-Traversal-of-a-Graph
 
-**Name:**
+**Name:** CHITHRADHEEP R
 
-**Register Number:**
+**Register Number:** 2305002003
 
 ### Aim:
 To Implement Breadth First Search Traversal of a Graph using Python 3.
@@ -35,52 +35,51 @@ Step 6: Iterate steps 4 and 5 until all nodes get visited, and there are no more
 
 ### Program:
 ```
-def bfs(graph, start):
-    visited = []  
-    queue = [start]  
-
+def bfs(graph,start):
+    visited=[]
+    queue=[start]
     while queue:
-        node = queue.pop(0)  
+        node=queue.pop(0)
         if node not in visited:
-            visited.append(node)  
-            queue.extend(graph.get(node, []))  
-
+            visited.append(node)
+            queue.extend(graph[node])
     return visited
-
 graph = {}
-n = int(input("Enter number of nodes: "))  
-
+n = int(input("Enter number of nodes: "))
+print("Enter each node and its neighbors separated by spaces (e.g., A B C D):")
 for _ in range(n):
-    node = input("Enter node: ")
-    neighbors = input(f"Enter neighbors of {node} (comma separated): ").split(",")
-    graph[node] = [neighbor.strip() for neighbor in neighbors]  
+    inputs = input().split()
+    node = inputs[0]
+    neighbors = inputs[1:]
+    graph[node] = neighbors
 
-start_node = input("Enter the starting node for BFS: ")
-
-
-print("BFS Traversal Order:", bfs(graph, start_node))
+start_node = input("Enter the start node for BFS: ")
+print(bfs(graph,start_node))
 ```
 ### Sample Input:
 
-Enter number of nodes: 3
+Enter number of nodes: 4
 
 Enter node: A
 
-Enter neighbors of A (comma separated): B
+Enter neighbors of A (comma separated): B C
 
 Enter node: B
 
-Enter neighbors of B (comma separated): C
+Enter neighbors of B (comma separated): D
 
 Enter node: C
 
-Enter neighbors of C (comma separated): 
+Enter neighbors of C (comma separated): D
+
+Enter node: 
 
 Enter the starting node for BFS: A
 
 ### Sample Output:
 
-BFS Traversal Order: ['A', 'B', 'C']
-
+BFS Traversal Order: ['A', 'B', 'C', 'D']
 
 ### Result:
+
+The given Python program was executed as per the sample input.
